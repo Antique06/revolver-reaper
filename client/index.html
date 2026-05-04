@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Revolver Reaper</title>
+
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/homePage.css" />
+	<link rel="stylesheet" href="/css/auth.css" />
+	<link rel="stylesheet" href="/css/credit.css" />
+	<link rel="stylesheet" href="/css/leaderboard.css" />
+	<link rel="stylesheet" href="/css/game.css" />
+	<link rel="stylesheet" href="/css/replay.css" />
+	<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
+
+	<script type="module" src="src/pageLoader.ts" defer></script>
+	<script type="module" src="/src/main.ts" defer></script>
+</head>
+
+<body style="background-image: url('../images/fond/homePage.png');">
+	<section class="viewContainer">
+		<header class="viewTitle"></header>
+		<div class="viewContent activeOnly">
+			<article class="HomePage">
+				<div class="mainPlaceHomepage">
+					<div class="side-block">
+						<div class="skinPlace skin1Preview active">
+							<img class="fullImg" src="images/player/preview/cowboy_preview_1.png">
+						</div>
+						<button class="buttonSkinSelection skin1Button">Sélectionner ce SKIN</button>
+						<div class="skinPlace skin2Preview">
+							<img class="fullImg" src="images/player/preview/cowboy_preview_2.png">
+						</div>
+						<button class="buttonSkinSelection skin2Button">Sélectionner ce SKIN</button>
+					</div>
+					<div class="side-block">
+						<div class="skinPlace skin3Preview">
+							<img class="fullImg" src="images/player/preview/cowboy_preview_3.png">
+						</div>
+						<button class="buttonSkinSelection skin3Button">Sélectionner ce SKIN</button>
+						<div class="skinPlace skin4Preview">
+							<img class="fullImg" src="images/player/preview/cowboy_preview_4.png">
+						</div>
+						<button class="buttonSkinSelection skin4Button">Sélectionner ce SKIN</button>
+					</div>
+					<div class="verticaHomePage">
+						<span class="gameName">Revolver Reaper</span>
+						<div class="buttonPlace">
+							<button class="buttonHomePage ConnectionButton"> Se connecter </button>
+							<button class="buttonHomePage PlayButton"> Jouer </button>
+							<button class="buttonHomePage LeaderboardButton"> Classement </button>
+							<button class="buttonHomePage CreditButton"> Crédit </button>
+						</div>
+					</div>
+				</div>
+			</article>
+			<article class="ConnectionPage" style="display: none;">
+				<div class="boxform">
+					<form class="form">
+						<div class="title">Bienvenue<br></div>
+						<input type="text" id="pseudoInput" placeholder="Pseudo" />
+						<button class="button-confirm"> Connexion </button>
+						<button class="button-confirm backToHomePage"> Retour </button>
+					</form>
+				</div>
+			</article>
+			<article class="GamePage" style="display: none;">
+				<div class="gamePlace">
+					<canvas class="gameCanvas" width="1200" height="900"></canvas>
+					<div class="infoPlace">
+						<span class="gamePseudo"> PSEUDO </span>
+						<span class="gameScore"> SCORE </span>
+						<span class="gameHighScore"> HIGH SCORE </span>
+						<div class="gameLeaderboard">
+							<h3 style="color: white; text-align: center;">Top 3</h3>
+							<div class="top3List" style="color: white;"></div>
+						</div>
+						<div class="gameLevel">
+							<div class="nbLevelPoint">
+								<span>Points de niveau</span>
+								<span class="nbLevelPointNumber">0</span>
+							</div>
+							<div class="statBlock">
+								<span class="statName">HP</span>
+								<span class="statValue hpValue">100</span>
+								<button class="upgradeBtn upgradeHpBtn">+</button>
+								<span class="maxValue maxHp" style="display: none;">MAX</span>
+							</div>
+							<div class="statBlock">
+								<span class="statName">DAMAGE</span>
+								<span class="statValue dmgValue">5</span>
+								<button class="upgradeBtn upgradeDmgBtn">+</button>
+								<span class="maxValue maxDmg" style="display: none;">MAX</span>
+							</div>
+							<div class="statBlock">
+								<span class="statName">SPEED</span>
+								<span class="statValue speedValue">8</span>
+								<button class="upgradeBtn upgradeSpeedBtn">+</button>
+								<span class="maxValue maxSpeed" style="display: none;">MAX</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bpout">
+					<div class="bpin high" style="width:100%"></div>
+				</div>
+			</article>
+			<article class="LeaderboardPage" style="display: none;">
+				<button class="leaderboardButton backToHomePage" href="index.html">Retour</button>
+				<div class="leaderboard"></div>
+			</article>
+			<article class="CreditPage" style="display: none;">
+				<button class="creditButton backToHomePage" href="index.html">Retour</button>
+				<span style="margin-bottom: 5%">Crédit</span>
+				<span>Martin 'GOAT' Morrenvillé</span>
+				<a target="_blank"
+					href="https://store.steampowered.com/app/242050/Assassins_Creed_IV_Black_Flag/">Assassin's Creed IV
+					Black Flag</a>
+				<span>Mathéo 'RockMath' LeLong</span>
+				<a target="_blank" href="https://store.steampowered.com/app/594650/Hunt_Showdown_1896/">Hunt Showdown
+					1896 (Le meilleur
+					des meilleurs)</a>
+				<span>Corentin 'Antique' Chocraux</span>
+				<a target="_blank" href="https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/">Clair
+					Obscur:
+					Expedition 33</a>
+					<h2>Sources</h2>
+					<ul>
+						<li><a href="https://grayger26.itch.io/wild-west-pixel-cowboy-pixel-art-asset-pack" target="_blank">Personnages Asset</a></li>
+						<li><a href="https://pixabay.com/fr/music/roche-musique-west-cowboy-337528/" target="_blank">Musique1</a></li>
+						<li><a href="https://pixabay.com/fr/music/pays-traditionnel-running-fiddlers-country-band-7742/" target="_blank">Musique2</a></li>
+						<li><a href="https://pixabay.com/fr/music/roche-country-rock-109318/" target="_blank">Musique3</a></li>
+						<li><a href="https://stockcake.com/fr/i/pixel-frontier-sunset_3197389_1623499" target="_blank">Fond d'écran</a></li>
+					</ul>
+			</article>
+			<article class="ReplayPage" style="display: none;">
+				<h2> 💀 Fin de partie 💀 </h2>
+				<div class="statsContainer">
+					<span class="replayTemps replayData">Temps : </span>
+					<span class="replayKillsBandit replayData">Kills : </span>
+					<span class="replayKillsBillyTheKid replayData">Kills : </span>
+					<span class="replayKillsJohnHenry replayData">Kills : </span>
+					<span class="replayScore replayData">Score : </span>
+				</div>
+				<button class="buttonHomePage PlayAgainButton"> Rejouer </button>
+				<button class="buttonHomePage backToHomePageFromReplay"> Retour à l'accueil </button>
+			</article>
+		</div>
+	</section>
+</body>
+
+</html>

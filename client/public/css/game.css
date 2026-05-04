@@ -1,0 +1,256 @@
+.bpout {
+    display: inline-block;
+    height: 1.5em;
+    width: 20em;
+    max-width: 90%;
+    background: linear-gradient(rgb(255, 255, 255) 10%, rgba(200, 200, 255, 1) 25%, rgb(255, 255, 255) 45%);
+    border: 1.5px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px rgba(100, 100, 100, 1);
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 5;
+    width: 20%;
+}
+
+.bpin {
+    display: inline-block;
+    height: 100%;
+    border-radius: 10px;
+
+    &.high {
+        background: linear-gradient(to bottom, rgb(0, 255, 0) 10%, white 25%, rgb(0, 255, 0) 42%);
+    }
+
+    &.mid {
+        background: linear-gradient(to bottom, rgb(255, 255, 0) 10%, white 25%, rgb(255, 255, 0) 42%);
+    }
+
+    &.low {
+        background: linear-gradient(to bottom, rgb(255, 0, 0) 10%, white 25%, rgb(255, 0, 0) 42%);
+    }
+}
+
+.gamePlace {
+    display: flex;
+    justify-content: flex-start;
+    /* Garde le jeu sur la gauche */
+    align-items: flex-start;
+    /* Force le canvas tout en haut */
+    gap: 30px;
+    height: 100vh;
+}
+
+.infoPlace {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centre le contenu verticalement dans l'espace restant */
+    align-items: center;
+    /* Centre horizontalement dans l'espace restant */
+    flex-grow: 1;
+    /* Prend tout l'espace disponible à droite */
+    height: 100%;
+    /* Prend toute la hauteur pour que le centrage s'applique bien */
+}
+
+/* Nouvelles classes pour les statistiques du joueur */
+.gamePseudo {
+    font-family: 'VT323', monospace;
+    font-size: 4.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.gameScore {
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
+    color: #ffeb3b;
+    /* Jaune doré assorti au classement */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.gameHighScore {
+    font-family: 'VT323', monospace;
+    font-size: 2.2rem;
+    color: #ff9800;
+    /* Orange/Or pour démarquer le meilleur score */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin-bottom: 35px;
+    /* Espace bien défini avant de placer le leaderboard */
+    text-align: center;
+}
+
+.gameLeaderboard {
+    width: 250px;
+    /* On définit la largeur ici plutôt que sur infoPlace */
+    background-color: rgba(30, 20, 15, 0.85);
+    /* Fond sombre semi-transparent */
+    border: 3px solid #8d6e63;
+    /* Bordure marron / western */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.6);
+    font-family: 'VT323', monospace;
+}
+
+.gameLeaderboard h3 {
+    color: #ffeb3b !important;
+    /* Texte jaune doré */
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8d6e63;
+    text-shadow: 2px 2px 4px #000;
+    letter-spacing: 2px;
+}
+
+.top3List {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: #fff !important;
+}
+
+.top3List div {
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 5px solid #ffeb3b;
+    text-shadow: 1px 1px 2px #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+.top3List div:hover {
+    background-color: rgba(255, 235, 59, 0.2);
+    transform: translateX(5px);
+}
+
+.top3List div[style*="gray"] {
+    background: none;
+    border: none;
+    box-shadow: none;
+    justify-content: center;
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+    padding: 0;
+    color: #aaa !important;
+}
+
+.top3List div[style*="gray"]:hover {
+    background: none;
+    transform: none;
+}
+
+/* Système d'amélioration des statistiques */
+.gameLevel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 250px;
+    margin-top: 15px;
+    background-color: rgba(30, 20, 15, 0.85);
+    border: 3px solid #8d6e63;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.statBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'VT323', monospace;
+}
+
+.statName {
+    font-size: 1.8rem;
+    color: #ffeb3b;
+    /* Jaune doré pour le nom de la stat */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.statValue {
+    font-size: 2.8rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin: 5px 0 10px 0;
+}
+
+.maxValue {
+    background-color: rgba(141, 110, 99, 0.8);
+    border: 2px solid #ffeb3b;
+    color: #ffeb3b;
+    font-family: 'VT323', monospace;
+    font-size: 2.5rem;
+    border-radius: 6px;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.upgradeBtn {
+    background-color: rgba(141, 110, 99, 0.8);
+    border: 2px solid #ffeb3b;
+    color: #ffeb3b;
+    font-family: 'VT323', monospace;
+    font-size: 2.5rem;
+    border-radius: 6px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+    /* Ajuste le centrage vertical parfait avec la police VT323 */
+}
+
+.upgradeBtn:hover {
+    background-color: rgba(168, 136, 125, 0.9);
+    transform: scale(1.15);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-color: #fff;
+}
+
+.upgradeBtn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    background-color: rgba(112, 85, 76, 0.9);
+}
+
+.nbLevelPoint {
+    font-family: 'VT323', monospace;
+    font-size: 2.2rem;
+    color: #ffeb3b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    margin: 0 0 15px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px dashed #8d6e63;
+    padding-bottom: 10px;
+}
